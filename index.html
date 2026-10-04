@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>yeobaek — 여백</title>
+  <meta name="description" content="yeobaek portfolio" />
+  <meta name="theme-color" content="#f5f5f7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top">yeobaek</a>
+    <nav class="topnav" aria-label="주요 메뉴">
+      <a class="topnav__contact" href="#contact">Contact</a>
+    </nav>
+    <button class="menu" id="menu" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="opening">
+      <div class="opening__visual">
+        <img src="assets/img/1.jpg" alt="조명 아래에서 촬영 중인 인물" />
+        <div class="opening__shade"></div>
+      </div>
+      <div class="opening__copy">
+        <h1>사진.<br />영상.<br />기록.<br />포트폴리오.</h1>
+      </div>
+    </section>
+
+    <section class="story-sequence" aria-label="스튜디오 작업 방식">
+      <div class="story-pin">
+        <div class="story-pin__visual">
+          <div class="story-image is-active"><img src="assets/img/2.jpg" alt="인물 사진 작업" /></div>
+          <div class="story-image"><img src="assets/img/3.jpg" alt="도시의 빛과 공간" /></div>
+          <div class="story-image"><img src="assets/img/4.jpg" alt="강과 풍경을 담은 영상" /></div>
+          <div class="story-image"><img src="assets/img/5.jpg" alt="촬영 현장의 카메라" /></div>
+          <div class="story-image"><img src="assets/img/5.jpg" alt="어둠 속의 인물" /></div>
+        </div>
+        <div class="story-pin__words">
+          <div class="story-word is-active">
+            <h3>TEXT1</h3>
+            <p>SEMI_TEXT1</p>
+          </div>
+          <div class="story-word">
+            <h3>TEXT2</h3>
+            <p>SEMI_TEXT2</p>
+          </div>
+          <div class="story-word">
+            <h3>TEXT3</h3>
+            <p>SEMI_TEXT3</p>
+          </div>
+          <div class="story-word">
+            <h3>TEXT4</h3>
+            <p>SEMI_TEXT4</p>
+          </div>
+          <div class="story-word">
+            <h3>TEXT5</h3>
+            <p>SEMI_TEXT5</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-reveal">
+      <div class="work-reveal__sticky">
+        <div class="work-reveal__image">
+          <img id="workImage" src="assets/img/6.jpg" alt="선택 작업 이미지" />
+        </div>
+        <div class="work-reveal__title" id="workTitle">T1<br />T1s</div>
+        <div class="work-reveal__dots">
+          <button class="is-active" data-work="0" aria-label="작업 1 보기"></button>
+          <button data-work="1" aria-label="작업 2 보기"></button>
+          <button data-work="2" aria-label="작업 3 보기"></button>
+          <button data-work="3" aria-label="작업 4 보기"></button>
+        </div>
+      </div>
+      <div class="work-reveal__steps">
+        <div data-work-step="0" data-image="assets/img/6.jpg" data-title="T1<br>T1s" data-kind="PORTRAIT"></div>
+        <div data-work-step="1" data-image="assets/img/7.jpg" data-title="T2<br>T2s" data-kind="SPACE"></div>
+        <div data-work-step="2" data-image="assets/img/8.jpg" data-title="T3<br>T3s" data-kind="DOCUMENTARY"></div>
+        <div data-work-step="3" data-image="assets/img/9.jpg" data-title="T4<br>T4s" data-kind="FILM"></div>
+      </div>
+    </section>
+
+    <section class="selected-gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="selected-gallery__head">
+        <h2 id="gallery-title">Photos</h2>
+      </div>
+      <div class="selected-gallery__grid">
+        <figure><img src="assets/img/10.jpg" alt="푸른 빛 아래 인물 사진" loading="lazy" /><figcaption>BLUE HOUR</figcaption></figure>
+        <figure><img src="assets/img/11.jpg" alt="어둠 속 인물 사진" loading="lazy" /><figcaption>SHADOW PLAY</figcaption></figure>
+        <figure><img src="assets/img/12.jpg" alt="오래된 공간의 디테일" loading="lazy" /><figcaption>OLD TOWN</figcaption></figure>
+        <figure><img src="assets/img/13.jpg" alt="손과 오브제를 담은 사진" loading="lazy" /><figcaption>OBJECT / 01</figcaption></figure>
+        <figure><img src="assets/img/14.jpg" alt="빛과 인물의 실루엣" loading="lazy" /><figcaption>AFTER LIGHT</figcaption></figure>
+        <figure><img src="assets/img/15.jpg" alt="도시의 인물 사진" loading="lazy" /><figcaption>STREET NOTE</figcaption></figure>
+        <figure class="gallery-extra"><img src="assets/img/16.jpg" alt="인물과 의상의 디테일" loading="lazy" /><figcaption>TEXTURE</figcaption></figure>
+        <figure class="gallery-extra"><img src="assets/img/17.jpg" alt="스튜디오 인물 사진" loading="lazy" /><figcaption>PORTRAIT / 02</figcaption></figure>
+      </div>
+      <button class="gallery-more" type="button" aria-expanded="false">사진 더 보기 <span>+</span></button>
+    </section>
+
+    <section class="film-strip" id="film">
+      <div class="film-strip__body">
+        <div class="film-strip__copy">
+          <h2>T1<br />T2<br />T3<br />T4</h2>
+          <button class="round-play" data-video="assets/video/1.mp4" data-title="portfolio video">재생 <b>↗</b></button>
+        </div>
+        <div class="film-strip__media">
+          <img src="assets/img/18.jpg" alt="포트폴리오 영상" />
+          <span>01:24</span>
+          <button class="play-over" data-video="assets/video/1.mp4" data-title="portfolio video" aria-label="영상 재생">▶</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="selected-video-gallery" id="video-gallery" aria-labelledby="video-gallery-title">
+      <div class="selected-video-gallery__head">
+        <h2 id="video-gallery-title">Videos</h2>
+      </div>
+      <div class="selected-video-gallery__grid">
+        <figure class="video-card">
+          <button type="button" data-video="assets/video/1.mp4" data-title="portfolio video 1">
+            <video src="assets/video/1.mp4" poster="assets/img/10.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
+          </button><figcaption>01</figcaption>
+        </figure>
+        <figure class="video-card">
+          <button type="button" data-video="assets/video/2.mp4" data-title="portfolio video 2">
+            <video src="assets/video/2.mp4" poster="assets/img/11.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
+          </button><figcaption>02</figcaption>
+        </figure>
+        <figure class="video-card">
+          <button type="button" data-video="assets/video/3.mp4" data-title="portfolio video 3">
+            <video src="assets/video/3.mp4" poster="assets/img/12.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
+          </button><figcaption>03</figcaption>
+        </figure>
+        <figure class="video-card">
+          <button type="button" data-video="assets/video/4.mp4" data-title="portfolio video 4">
+            <video src="assets/video/4.mp4" poster="assets/img/13.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
+          </button><figcaption>04</figcaption>
+        </figure>
+        <figure class="video-card video-gallery-extra">
+          <button type="button" data-video="assets/video/5.mp4" data-title="portfolio video 5">
+            <video src="assets/video/5.mp4" poster="assets/img/14.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
+          </button><figcaption>05</figcaption>
+        </figure>
+        <figure class="video-card video-gallery-extra">
+          <button type="button" data-video="assets/video/6.mp4" data-title="portfolio video 6">
+            <video src="assets/video/6.mp4" poster="assets/img/15.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
+          </button><figcaption>06</figcaption>
+        </figure>
+      </div>
+      <button class="video-gallery-more" type="button" aria-expanded="false">영상 더 보기 <span>+</span></button>
+    </section>
+
+    <section class="about-new" id="about">
+      <div class="about-new__grid">
+        <div><h2>T1<br />T2</h2></div>
+        <div>
+          <p class="bigp">ABOUT</p>
+          <div class="about-facts">
+            <div><b>2025</b><span>SINCE</span></div>
+            <div><b>13</b><span>PROJECTS</span></div>
+            <div><b>4</b><span>CLIENTS</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="social-links">
+        <div class="social-links__inner">
+          <h2 id="social-links-title">Social</h2>
+          <nav class="social-links__nav" aria-label="소셜 링크">
+            <a href="https://www.instagram.com/yeo.baekkk" target="_blank" rel="noopener noreferrer">Instagram <span>↗</span></a>
+            <a href="https://www.youtube.com/@yeo.baekkk" target="_blank" rel="noopener noreferrer">YouTube <span>↗</span></a>
+            <a href="https://x.com/yeobaekkk" target="_blank" rel="noopener noreferrer">X <span>↗</span></a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-new" id="contact">
+      <div class="contact-new__inner">
+        <h2>Contact</h2>
+        <a class="contact-link" href="mailto:yeo.baekkk@outlook.com">yeo.baekkk@outlook.com <b>↗</b></a>
+        <div class="contact-links">
+          <a class="contact-social" href="https://discord.gg/wPaXGTEaK3" target="_blank" rel="noopener noreferrer">Discord</a>
+        </div>
+        <div class="font-drawer">
+          <button class="font-drawer__toggle" type="button" aria-expanded="false" aria-controls="fontDrawerPanel">
+            사용한 폰트 보기 <span>+</span>
+          </button>
+          <div class="font-drawer__panel" id="fontDrawerPanel" hidden>
+            <div><b>Space Grotesk</b><span>상단 yeobaek 로고 · 폰트 목록</span></div>
+            <div><b>Pretendard Variable</b><span>본문 · 메뉴 · 버튼 · 일반 UI</span></div>
+            <div><b>Instrument Serif</b><span>강조 구간의 기울임꼴 텍스트</span></div>
+          </div>
+        </div>
+      </div>
+      <span>Copyright© All Rights Reserved By yeobaek</span>
+      <div>
+    </section>
+  </main>
+
+  <div class="video-modal" id="videoModal" hidden>
+    <button class="video-close" id="videoClose">×</button>
+    <div>
+      <video id="videoPlayer" controls playsinline></video>
+      <p id="videoTitle"></p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
