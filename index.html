@@ -1,219 +1,730 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>yeobaek — 여백</title>
-  <meta name="description" content="yeobaek portfolio" />
-  <meta name="theme-color" content="#f5f5f7" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <header class="topbar" id="topbar">
-    <a class="brand" href="#top">yeobaek</a>
-    <nav class="topnav" aria-label="주요 메뉴">
-      <a class="topnav__contact" href="#contact">Contact</a>
-    </nav>
-    <button class="menu" id="menu" aria-label="메뉴 열기" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f7" />
+    <meta name="description" content="yeobaek portfolio" />
+    <title>yeobaek — 여백</title>
 
-  <main id="top">
-    <section class="opening">
-      <div class="opening__visual">
-        <img src="assets/img/1.jpg" alt="조명 아래에서 촬영 중인 인물" />
-        <div class="opening__shade"></div>
-      </div>
-      <div class="opening__copy">
-        <h1>사진.<br />영상.<br />기록.<br>포트폴리오.</h1>
-      </div>
-    </section>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding-top: 72px;
+        background: #ffffff !important;
+        scroll-behavior: smooth;
+      }
 
-    <section class="story-sequence" aria-label="스튜디오 작업 방식">
-      <div class="story-pin">
-        <div class="story-pin__visual">
-          <div class="story-image is-active"><img src="assets/img/2.jpg" alt="인물 사진 작업" /></div>
-          <div class="story-image"><img src="assets/img/3.jpg" alt="도시의 빛과 공간" /></div>
-          <div class="story-image"><img src="assets/img/4.jpg" alt="강과 풍경을 담은 영상" /></div>
-          <div class="story-image"><img src="assets/img/5.jpg" alt="촬영 현장의 카메라" /></div>
-          <div class="story-image"><img src="assets/img/5.jpg" alt="어둠 속의 인물" /></div>
-        </div>
-        <div class="story-pin__words">
-          <div class="story-word is-active">
-            <h3>TEXT1</h3>
-            <p>SEMI_TEXT1</p>
-          </div>
-          <div class="story-word">
-            <h3>TEXT2</h3>
-            <p>SEMI_TEXT2</p>
-          </div>
-          <div class="story-word">
-            <h3>TEXT3</h3>
-            <p>SEMI_TEXT3</p>
-          </div>
-          <div class="story-word">
-            <h3>TEXT4</h3>
-            <p>SEMI_TEXT4</p>
-          </div>
-          <div class="story-word">
-            <h3>TEXT5</h3>
-            <p>SEMI_TEXT5</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      main {
+        margin-top: 0 !important;
+      }
 
-    <section class="work-reveal">
-      <div class="work-reveal__sticky">
-        <div class="work-reveal__image">
-          <img id="workImage" src="assets/img/6.jpg" alt="선택 작업 이미지" />
-        </div>
-        <div class="work-reveal__title" id="workTitle">T1<br />T1s</div>
-        <div class="work-reveal__dots">
-          <button class="is-active" data-work="0" aria-label="작업 1 보기"></button>
-          <button data-work="1" aria-label="작업 2 보기"></button>
-          <button data-work="2" aria-label="작업 3 보기"></button>
-          <button data-work="3" aria-label="작업 4 보기"></button>
-        </div>
-      </div>
-      <div class="work-reveal__steps">
-        <div data-work-step="0" data-image="assets/img/6.jpg" data-title="T1<br>T1s" data-kind="PORTRAIT"></div>
-        <div data-work-step="1" data-image="assets/img/7.jpg" data-title="T2<br>T2s" data-kind="SPACE"></div>
-        <div data-work-step="2" data-image="assets/img/8.jpg" data-title="T3<br>T3s" data-kind="DOCUMENTARY"></div>
-        <div data-work-step="3" data-image="assets/img/9.jpg" data-title="T4<br>T4s" data-kind="FILM"></div>
-      </div>
-    </section>
+      #gallery {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        background: #ffffff !important;
+      }
 
-    <section class="selected-gallery" id="gallery" aria-labelledby="gallery-title">
-      <div class="selected-gallery__head">
-        <h2 id="gallery-title">Photos</h2>
-      </div>
-      <div class="selected-gallery__grid">
-        <figure><img src="assets/img/10.jpg" alt="푸른 빛 아래 인물 사진" loading="lazy" /><figcaption>BLUE HOUR</figcaption></figure>
-        <figure><img src="assets/img/11.jpg" alt="어둠 속 인물 사진" loading="lazy" /><figcaption>SHADOW PLAY</figcaption></figure>
-        <figure><img src="assets/img/12.jpg" alt="오래된 공간의 디테일" loading="lazy" /><figcaption>OLD TOWN</figcaption></figure>
-        <figure><img src="assets/img/13.jpg" alt="손과 오브제를 담은 사진" loading="lazy" /><figcaption>OBJECT / 01</figcaption></figure>
-        <figure><img src="assets/img/14.jpg" alt="빛과 인물의 실루엣" loading="lazy" /><figcaption>AFTER LIGHT</figcaption></figure>
-        <figure><img src="assets/img/15.jpg" alt="도시의 인물 사진" loading="lazy" /><figcaption>STREET NOTE</figcaption></figure>
-        <figure class="gallery-extra"><img src="assets/img/16.jpg" alt="인물과 의상의 디테일" loading="lazy" /><figcaption>TEXTURE</figcaption></figure>
-        <figure class="gallery-extra"><img src="assets/img/17.jpg" alt="스튜디오 인물 사진" loading="lazy" /><figcaption>PORTRAIT / 02</figcaption></figure>
-      </div>
-      <button class="gallery-more" type="button" aria-expanded="false">사진 더 보기 <span>+</span></button>
-    </section>
+      #gallery,
+      #video-gallery {
+        scroll-margin-top: 88px;
+      }
 
-    <section class="film-strip" id="film">
-      <div class="film-strip__body">
-        <div class="film-strip__copy">
-          <h2>T1<br />T2<br />T3<br />T4</h2>
-          <button class="round-play" data-video="assets/video/1.mp4" data-title="portfolio video">재생 <b>↗</b></button>
-        </div>
-        <div class="film-strip__media">
-          <img src="assets/img/18.jpg" alt="포트폴리오 영상" />
-          <span>01:24</span>
-          <button class="play-over" data-video="assets/video/1.mp4" data-title="portfolio video" aria-label="영상 재생">▶</button>
-        </div>
-      </div>
-    </section>
+      .topbar {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-height: 72px !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 16px clamp(32px, 6vw, 88px) !important;
+        background: #ffffff !important;
+        color: #111 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+        z-index: 1000;
+      }
 
-    <section class="selected-video-gallery" id="video-gallery" aria-labelledby="video-gallery-title">
-      <div class="selected-video-gallery__head">
-        <h2 id="video-gallery-title">Videos</h2>
-      </div>
-      <div class="selected-video-gallery__grid">
-        <figure class="video-card">
-          <button type="button" data-video="assets/video/1.mp4" data-title="portfolio video 1">
-            <video src="assets/video/1.mp4" poster="assets/img/10.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
-          </button><figcaption>01</figcaption>
-        </figure>
-        <figure class="video-card">
-          <button type="button" data-video="assets/video/2.mp4" data-title="portfolio video 2">
-            <video src="assets/video/2.mp4" poster="assets/img/11.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
-          </button><figcaption>02</figcaption>
-        </figure>
-        <figure class="video-card">
-          <button type="button" data-video="assets/video/3.mp4" data-title="portfolio video 3">
-            <video src="assets/video/3.mp4" poster="assets/img/12.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
-          </button><figcaption>03</figcaption>
-        </figure>
-        <figure class="video-card">
-          <button type="button" data-video="assets/video/4.mp4" data-title="portfolio video 4">
-            <video src="assets/video/4.mp4" poster="assets/img/13.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
-          </button><figcaption>04</figcaption>
-        </figure>
-        <figure class="video-card video-gallery-extra">
-          <button type="button" data-video="assets/video/5.mp4" data-title="portfolio video 5">
-            <video src="assets/video/5.mp4" poster="assets/img/14.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
-          </button><figcaption>05</figcaption>
-        </figure>
-        <figure class="video-card video-gallery-extra">
-          <button type="button" data-video="assets/video/6.mp4" data-title="portfolio video 6">
-            <video src="assets/video/6.mp4" poster="assets/img/15.jpg" muted loop autoplay playsinline preload="metadata"></video><span>PLAY ↗</span>
-          </button><figcaption>06</figcaption>
-        </figure>
-      </div>
-      <button class="video-gallery-more" type="button" aria-expanded="false">영상 더 보기 <span>+</span></button>
-    </section>
+      .topbar a,
+      .topbar button {
+        color: #111111 !important;
+      }
 
-    <section class="about-new" id="about">
-      <div class="about-new__grid">
-        <div><h2>T1<br />T2</h2></div>
-        <div>
-          <p class="bigp">ABOUT</p>
-          <div class="about-facts">
-            <div><b>2025</b><span>SINCE</span></div>
-            <div><b>13</b><span>PROJECTS</span></div>
-            <div><b>4</b><span>CLIENTS</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="social-links">
-        <div class="social-links__inner">
-          <h2 id="social-links-title">Social</h2>
-          <nav class="social-links__nav" aria-label="소셜 링크">
-            <a href="https://www.instagram.com/yeo.baekkk" target="_blank" rel="noopener noreferrer">Instagram <span>↗</span></a>
-            <a href="https://www.youtube.com/@yeo.baekkk" target="_blank" rel="noopener noreferrer">YouTube <span>↗</span></a>
-            <a href="https://x.com/yeobaekkk" target="_blank" rel="noopener noreferrer">X <span>↗</span></a>
-          </nav>
-        </div>
-      </div>
-    </section>
+      .topbar .brand {
+        color: #111111 !important;
+        opacity: 1 !important;
+      }
 
-    <section class="contact-new" id="contact">
-      <div class="contact-new__inner">
-        <h2>Contact</h2>
-        <a class="contact-link" href="mailto:contact@yeobaek.xyz">contact@yeobaek.xyz <b>↗</b></a>
-        <div class="contact-links">
-          <a class="contact-social" href="https://discord.gg/J4NaZSJu" target="_blank" rel="noopener noreferrer">Discord</a>
-        </div>
-        <div class="font-drawer">
-          <button class="font-drawer__toggle" type="button" aria-expanded="false" aria-controls="fontDrawerPanel">
-            사용한 폰트 보기 <span>+</span>
-          </button>
-          <div class="font-drawer__panel" id="fontDrawerPanel" hidden>
-            <div><b>Space Grotesk</b><span>상단 yeobaek 로고 · 폰트 목록</span></div>
-            <div><b>Pretendard Variable</b><span>본문 · 메뉴 · 버튼 · 일반 UI</span></div>
-            <div><b>Instrument Serif</b><span>강조 구간의 기울임꼴 텍스트</span></div>
-          </div>
-        </div>
-        <span class="copyright">Copyright© All Rights Reserved By yeobaek</span>
-      </div>
-    </section>
-  </main>
+      .topnav {
+        display: flex !important;
+        align-items: center !important;
+        gap: 20px !important;
+      }
 
-  <div class="video-modal" id="videoModal" hidden>
-    <button class="video-close" id="videoClose">×</button>
-    <div>
-      <video id="videoPlayer" controls playsinline></video>
-      <p id="videoTitle"></p>
+      .topnav__link,
+      .topnav__contact {
+        display: inline-flex !important;
+        align-items: center !important;
+        color: #111111 !important;
+        background: transparent !important;
+        opacity: 1 !important;
+        text-decoration: none !important;
+        white-space: nowrap;
+      }
+
+      body.splash-active {
+        overflow: hidden;
+      }
+
+      .splash-screen {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+        color: #111111;
+        opacity: 1;
+        visibility: visible;
+        transition:
+          opacity 0.4s ease,
+          visibility 0.4s ease;
+        z-index: 9999;
+      }
+
+      .splash-screen.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .splash-screen__brand {
+        color: #111111;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(0.9rem, 2vw, 1.75rem);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+      }
+
+      .selected-gallery__grid figure img,
+      .video-card > button {
+        cursor: zoom-in;
+      }
+
+      .selected-video-gallery__grid .video-gallery-extra {
+        display: none;
+      }
+
+      .selected-video-gallery__grid .video-gallery-extra.is-visible {
+        display: block;
+        animation: media-content-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .video-modal,
+      .image-modal {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.86);
+        z-index: 2000;
+        animation: media-modal-in 0.3s ease both;
+      }
+
+      .video-modal[hidden],
+      .image-modal[hidden] {
+        display: none;
+      }
+
+      .video-modal > div,
+      .image-modal > div {
+        position: relative;
+        display: grid;
+        gap: 12px;
+        width: min(92vw, 1200px);
+        max-height: 92vh;
+        animation: media-content-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .video-modal video,
+      .image-modal img {
+        display: block;
+        width: 100%;
+        max-height: 82vh;
+        object-fit: contain;
+      }
+
+      .video-modal p,
+      .image-modal p {
+        margin: 0;
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .video-close,
+      .image-close {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        display: grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #111111;
+        font-size: 30px;
+        line-height: 1;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .video-close:hover,
+      .image-close:hover {
+        transform: scale(1.08);
+      }
+
+      @keyframes media-modal-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes media-content-in {
+        from {
+          opacity: 0;
+          transform: scale(0.88) translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .video-modal,
+        .image-modal,
+        .video-modal > div,
+        .image-modal > div {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="splash-active">
+    <div
+      id="splashScreen"
+      class="splash-screen"
+      role="status"
+      aria-label="loading"
+    >
+      <span class="splash-screen__brand">yeobaek</span>
     </div>
-  </div>
 
-  <script src="js/main.js"></script>
-</body>
+    <header id="topbar" class="topbar">
+      <a class="brand" href="#top">yeobaek</a>
+
+      <nav class="topnav" aria-label="주요 메뉴">
+        <a class="topnav__link" href="#gallery">Photos</a>
+        <a class="topnav__link" href="#video-gallery">Videos</a>
+        <a class="topnav__contact" href="#contact">Contact</a>
+      </nav>
+
+      <button
+        id="menu"
+        class="menu"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <!-- Photos -->
+      <section
+        id="gallery"
+        class="selected-gallery"
+        aria-labelledby="gallery-title"
+      >
+        <div class="selected-gallery__head">
+          <h2 id="gallery-title">Photos</h2>
+        </div>
+
+        <div class="selected-gallery__grid">
+          <figure>
+            <img src="assets/img/1.jpg" alt=" " loading="lazy" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/2.jpg" alt=" " loading="lazy" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/3.jpg" alt=" " loading="lazy" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/4.jpg" alt=" " loading="lazy" />
+            <figcaption>f</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/5.jpg" alt=" " loading="lazy" />
+            <figcaption></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/img/6.jpg" alt=" " loading="lazy" />
+            <figcaption></figcaption>
+          </figure>
+          <figure class="gallery-extra">
+            <img src="assets/img/7.jpg" alt=" " loading="lazy" />
+            <figcaption></figcaption>
+          </figure>
+          <figure class="gallery-extra">
+            <img src="assets/img/8.jpg" alt=" " loading="lazy" />
+            <figcaption></figcaption>
+          </figure>
+        </div>
+
+        <button
+          class="gallery-more"
+          type="button"
+          aria-label="사진 더 보기"
+          aria-expanded="false"
+        >
+          사진 더 보기 <span aria-hidden="true">+</span>
+        </button>
+      </section>
+
+      <!-- Videos -->
+      <section
+        id="video-gallery"
+        class="selected-video-gallery"
+        aria-labelledby="video-gallery-title"
+      >
+        <div class="selected-video-gallery__head">
+          <h2 id="video-gallery-title">Videos</h2>
+        </div>
+
+        <div class="selected-video-gallery__grid">
+          <figure class="video-card">
+            <button
+              type="button"
+              data-video="assets/video/1.mp4"
+              data-title=" "
+              aria-label="portfolio video 1 재생"
+            >
+              <video
+                src="assets/video/1.mp4"
+                poster="assets/img/9.jpg"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="metadata"
+              ></video>
+              <span> </span>
+            </button>
+            <figcaption>01</figcaption>
+          </figure>
+          <figure class="video-card">
+            <button
+              type="button"
+              data-video="assets/video/2.mp4"
+              data-title=" "
+              aria-label="portfolio video 2 재생"
+            >
+              <video
+                src="assets/video/2.mp4"
+                poster="assets/img/10.jpg"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="metadata"
+              ></video>
+              <span> </span>
+            </button>
+            <figcaption>02</figcaption>
+          </figure>
+          <figure class="video-card">
+            <button
+              type="button"
+              data-video="assets/video/3.mp4"
+              data-title=" "
+              aria-label="portfolio video 3 재생"
+            >
+              <video
+                src="assets/video/3.mp4"
+                poster="assets/img/11.jpg"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="metadata"
+              ></video>
+              <span> </span>
+            </button>
+            <figcaption>03</figcaption>
+          </figure>
+          <figure class="video-card video-gallery-extra">
+            <button
+              type="button"
+              data-video="assets/video/4.mp4"
+              data-title=" "
+              aria-label="portfolio video 4 재생"
+            >
+              <video
+                src="assets/video/4.mp4"
+                poster="assets/img/12.jpg"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="metadata"
+              ></video>
+              <span> </span>
+            </button>
+            <figcaption>04</figcaption>
+          </figure>
+          <figure class="video-card video-gallery-extra">
+            <button
+              type="button"
+              data-video="assets/video/5.mp4"
+              data-title=" "
+              aria-label="portfolio video 5 재생"
+            >
+              <video
+                src="assets/video/5.mp4"
+                poster="assets/img/13.jpg"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="metadata"
+              ></video>
+              <span> </span>
+            </button>
+            <figcaption>05</figcaption>
+          </figure>
+          <figure class="video-card video-gallery-extra">
+            <button
+              type="button"
+              data-video="assets/video/6.mp4"
+              data-title=" "
+              aria-label="portfolio video 6 재생"
+            >
+              <video
+                src="assets/video/6.mp4"
+                poster="assets/img/14.jpg"
+                muted
+                loop
+                autoplay
+                playsinline
+                preload="metadata"
+              ></video>
+              <span> </span>
+            </button>
+            <figcaption>06</figcaption>
+          </figure>
+        </div>
+
+        <button
+          class="video-gallery-more"
+          type="button"
+          aria-label="영상 더 보기"
+          aria-expanded="false"
+        >
+          영상 더 보기 <span aria-hidden="true">+</span>
+        </button>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="about-new" aria-labelledby="about-title">
+        <div class="about-new__grid">
+          <div aria-hidden="true">
+            <h2>T1<br />T2</h2>
+          </div>
+          <div>
+            <p id="about-title" class="bigp">ABOUT</p>
+            <div class="about-facts">
+              <div>
+                <b>2025</b>
+                <span>SINCE</span>
+              </div>
+              <div>
+                <b>13</b>
+                <span>PROJECTS</span>
+              </div>
+              <div>
+                <b>4</b>
+                <span>CLIENTS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <div class="social-links__inner">
+            <h2 id="social-links-title">Social</h2>
+            <nav class="social-links__nav" aria-label="소셜 링크">
+              <a
+                href="https://www.instagram.com/yeo.baekkk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href="https://www.youtube.com/@yeo.baekkk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href="https://x.com/yeobaekkk"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                X <span aria-hidden="true">↗</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="contact-new" aria-labelledby="contact-title">
+        <div class="contact-new__inner">
+          <h2 id="contact-title">Contact</h2>
+          <a class="contact-link" href="mailto:contact@yeobaek.xyz">
+            contact@yeobaek.xyz <b aria-hidden="true">↗</b>
+          </a>
+
+          <div class="contact-links">
+            <a
+              class="contact-social"
+              href="https://discord.gg/J4NaZSJu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Discord
+            </a>
+          </div>
+
+          <div class="font-drawer">
+            <button
+              class="font-drawer__toggle"
+              type="button"
+              aria-controls="fontDrawerPanel"
+              aria-expanded="false"
+            >
+              사용한 폰트 보기 <span aria-hidden="true">+</span>
+            </button>
+            <div id="fontDrawerPanel" class="font-drawer__panel" hidden>
+              <div>
+                <b>Space Grotesk</b>
+              </div>
+              <div>
+                <b>Pretendard Variable</b>
+              </div>
+              <div>
+                <b>Instrument Serif</b>
+              </div>
+            </div>
+          </div>
+
+          <span class="copyright"
+            >Copyright © All Rights Reserved By yeobaek</span
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- Video modal -->
+    <div
+      id="videoModal"
+      class="video-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoTitle"
+      hidden
+    >
+      <button
+        id="videoClose"
+        class="video-close"
+        type="button"
+        aria-label="영상 모달 닫기"
+      >
+        ×
+      </button>
+      <div>
+        <video id="videoPlayer" controls playsinline></video>
+        <p id="videoTitle"></p>
+      </div>
+    </div>
+
+    <!-- Image modal -->
+    <div
+      id="imageModal"
+      class="image-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="imageTitle"
+      hidden
+    >
+      <button
+        id="imageClose"
+        class="image-close"
+        type="button"
+        aria-label="사진 팝업 닫기"
+      >
+        ×
+      </button>
+      <div>
+        <img id="imageViewer" src="" alt="" />
+        <p id="imageTitle"></p>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+      (() => {
+        const imageModal = document.getElementById("imageModal");
+        const imageViewer = document.getElementById("imageViewer");
+        const imageTitle = document.getElementById("imageTitle");
+        const imageClose = document.getElementById("imageClose");
+        const videoModal = document.getElementById("videoModal");
+        const videoPlayer = document.getElementById("videoPlayer");
+        const videoTitle = document.getElementById("videoTitle");
+        const videoClose = document.getElementById("videoClose");
+
+        const closeModal = (modal, video = null) => {
+          if (!modal) return;
+          modal.hidden = true;
+          document.body.style.overflow = "";
+          if (video) {
+            video.pause();
+            video.removeAttribute("src");
+            video.load();
+          }
+        };
+
+        document
+          .querySelectorAll(".selected-gallery__grid figure img")
+          .forEach((image) => {
+            image.addEventListener("click", () => {
+              imageViewer.src = image.currentSrc || image.src;
+              imageViewer.alt = image.alt;
+              imageTitle.textContent =
+                image.closest("figure")?.querySelector("figcaption")
+                  ?.textContent || "";
+              imageModal.hidden = false;
+              document.body.style.overflow = "hidden";
+            });
+          });
+
+        document.querySelectorAll(".video-card > button").forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            const source = button.dataset.video;
+            if (!source || !videoPlayer) return;
+
+            document
+              .querySelectorAll(".video-card video")
+              .forEach((preview) => preview.pause());
+            videoPlayer.src = source;
+            videoTitle.textContent = button.dataset.title || "";
+            videoModal.hidden = false;
+            document.body.style.overflow = "hidden";
+            videoPlayer.play().catch(() => {});
+          });
+        });
+
+        const videoGalleryMore = document.querySelector(".video-gallery-more");
+        const extraVideoCards = document.querySelectorAll(
+          ".selected-video-gallery__grid .video-gallery-extra",
+        );
+
+        videoGalleryMore?.addEventListener(
+          "click",
+          (event) => {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            const isExpanded =
+              videoGalleryMore.getAttribute("aria-expanded") === "true";
+
+            extraVideoCards.forEach((card) => {
+              card.classList.toggle("is-visible", !isExpanded);
+            });
+            videoGalleryMore.setAttribute("aria-expanded", String(!isExpanded));
+            videoGalleryMore.innerHTML = isExpanded
+              ? '영상 더 보기 <span aria-hidden="true">+</span>'
+              : '영상 접기 <span aria-hidden="true">−</span>';
+          },
+          true,
+        );
+
+        imageClose?.addEventListener("click", () => closeModal(imageModal));
+        videoClose?.addEventListener("click", () =>
+          closeModal(videoModal, videoPlayer),
+        );
+
+        [imageModal, videoModal].forEach((modal) => {
+          modal?.addEventListener("click", (event) => {
+            if (event.target === modal) {
+              closeModal(modal, modal === videoModal ? videoPlayer : null);
+            }
+          });
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key !== "Escape") return;
+          closeModal(imageModal);
+          closeModal(videoModal, videoPlayer);
+        });
+      })();
+    </script>
+    <script>
+      window.setTimeout(() => {
+        const splashScreen = document.getElementById("splashScreen");
+
+        splashScreen?.classList.add("is-hidden");
+        document.body.classList.remove("splash-active");
+
+        window.setTimeout(() => {
+          splashScreen?.remove();
+        }, 300);
+      }, 500);
+    </script>
+  </body>
 </html>
