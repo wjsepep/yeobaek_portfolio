@@ -22,51 +22,23 @@
     document.body.classList.toggle('lock', isOpen);
   });
 
-  $$('.topnav a').forEach(link => {
+  const photosGroup = $('.topnav__photos');
+  const photosTrigger = $('.topnav__photos-trigger');
+  photosTrigger?.addEventListener('click', () => {
+    const expanded = photosGroup.classList.toggle('is-open');
+    photosTrigger.setAttribute('aria-expanded', String(expanded));
+  });
+  $$('.topnav a:not(.topnav__photos-trigger)').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
       menu?.classList.remove('open');
+      photosGroup?.classList.remove('is-open');
+      photosTrigger?.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('lock');
     });
   });
 
-  // Contact 이동은 기본 scroll-behavior보다 느린 1.25초 애니메이션을 사용합니다.
-  const contactLink = $('.topnav__contact[href="#contact"]');
-  contactLink?.addEventListener('click', event => {
-    const target = $('#contact');
-    if (!target) return;
-
-    event.preventDefault();
-    if (reduceMotion) {
-      target.scrollIntoView();
-      return;
-    }
-
-    const start = scrollY;
-    const distance = target.offsetTop - start;
-    const duration = 1250;
-    const root = document.documentElement;
-    const previousScrollBehavior = root.style.scrollBehavior;
-    root.style.scrollBehavior = 'auto';
-    let startTime;
-
-    const animateScroll = timestamp => {
-      startTime ??= timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = progress < .5
-        ? 2 * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-      scrollTo({ top: start + distance * eased, behavior: 'auto' });
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      } else {
-        root.style.scrollBehavior = previousScrollBehavior;
-      }
-    };
-
-    requestAnimationFrame(animateScroll);
-  });
-
+  // Contact는 기본 앵커 스크롤을 사용해 현재 문서 레이아웃에 맞춰 이동합니다.
   // 섹션 등장 효과
   const reveal = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -157,14 +129,16 @@
     });
   });
 
-  // 사진 갤러리의 추가 이미지 표시
-  const gallery = $('.selected-gallery');
-  const galleryMore = $('.gallery-more');
-  galleryMore?.addEventListener('click', () => {
-    const expanded = gallery.classList.toggle('is-expanded');
-    galleryMore.setAttribute('aria-expanded', String(expanded));
-    galleryMore.querySelector('span').textContent = expanded ? '−' : '+';
-    galleryMore.firstChild.textContent = expanded ? '사진 접기 ' : '사진 더 보기 ';
+  // 사진 카테고리별 추가 이미지 표시
+  $$('.selected-gallery').forEach(gallery => {
+    const moreButton = $('.gallery-more', gallery);
+    moreButton?.addEventListener('click', () => {
+      const expanded = gallery.classList.toggle('is-expanded');
+      moreButton.setAttribute('aria-expanded', String(expanded));
+      moreButton.setAttribute('aria-label', expanded ? '사진 접기' : '사진 더 보기');
+      moreButton.querySelector('span').textContent = expanded ? '−' : '+';
+      moreButton.firstChild.textContent = expanded ? '사진 접기 ' : '사진 더 보기 ';
+    });
   });
 
   const videoGallery = $('.selected-video-gallery');
@@ -187,29 +161,55 @@
     if (fontDrawerPanel) fontDrawerPanel.hidden = !expanded;
   });
 
-  // 영상 모달
+  // YouTube 영상 모달 및 카드 썸네일
   const videoModal = $('#videoModal');
   const videoPlayer = $('#videoPlayer');
   const videoTitle = $('#videoTitle');
 
+  function getYouTubeId(source) {
+    if (!source || source.includes('여기에')) return '';
+    try {
+      const url = new URL(source.trim());
+      if (url.hostname === 'youtu.be') return url.pathname.slice(1).split('/')[0];
+      if (url.hostname.endsWith('youtube.com')) {
+        if (url.pathname === '/watch') return url.searchParams.get('v') || '';
+        const parts = url.pathname.split('/').filter(Boolean);
+        if (['embed', 'shorts', 'live'].includes(parts[0])) return parts[1] || '';
+      }
+    } catch (_) {}
+    return '';
+  }
+
   function openVideo(source, title) {
-    videoPlayer.src = source;
-    videoTitle.textContent = title;
+    const videoId = getYouTubeId(source);
+    if (!videoId || !videoPlayer || !videoModal) {
+      alert('YouTube 영상 링크를 data-video="여기에 링크 넣기" 부분에 넣어주세요.');
+      return;
+    }
+    videoPlayer.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0`;
+    videoTitle.textContent = title || '';
     videoModal.hidden = false;
     document.body.classList.add('lock');
-    videoPlayer.play().catch(() => {});
   }
 
   function closeVideo() {
-    videoPlayer.pause();
+    if (!videoPlayer || !videoModal) return;
     videoPlayer.removeAttribute('src');
-    videoPlayer.load();
     videoModal.hidden = true;
     document.body.classList.remove('lock');
   }
 
-  $$('[data-video]').forEach(trigger => {
-    trigger.addEventListener('click', () => {
+  $$('.video-card').forEach(card => {
+    const trigger = $('button', card);
+    const thumbnail = $('img', card);
+    const label = $('span', card);
+    const videoId = getYouTubeId(trigger?.dataset.video);
+    if (videoId && thumbnail) {
+      thumbnail.src = `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
+      thumbnail.alt = trigger.dataset.title || 'YouTube video thumbnail';
+      if (label) label.textContent = '▶ PLAY';
+    }
+    trigger?.addEventListener('click', () => {
       openVideo(trigger.dataset.video, trigger.dataset.title);
     });
   });

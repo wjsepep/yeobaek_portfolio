@@ -1,28 +1,19 @@
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f5f5f7" />
-    <meta name="description" content="yeobaek portfolio" />
-    <title>yeobaek — 여백</title>
+<!DOCTYPE html>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#f5f5f7" name="theme-color"/>
+<meta content="yeobaek portfolio" name="description"/>
+<title>yeobaek — 여백</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
       html,
       body {
         margin: 0;
@@ -42,6 +33,7 @@
       }
 
       #gallery,
+      #monochrome-gallery,
       #video-gallery {
         scroll-margin-top: 88px;
       }
@@ -167,7 +159,7 @@
         animation: media-content-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
       }
 
-      .video-modal video,
+      .video-modal iframe,
       .image-modal img {
         display: block;
         width: 100%;
@@ -234,390 +226,352 @@
           animation: none;
         }
       }
+
+      /* Mobile header: keep the menu control visible above the white toolbar. */
+      @media (max-width: 800px) {
+        #topbar { z-index: 2100 !important; }
+        #menu {
+          position: fixed !important;
+          top: calc(14px + env(safe-area-inset-top)) !important;
+          right: clamp(20px, 6vw, 32px) !important;
+          z-index: 2200 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 2px !important;
+          width: 44px !important;
+          height: 44px !important;
+          border: 0 !important;
+          border-radius: 0 !important;
+          background: transparent !important;
+          box-shadow: none !important;
+        }
+        #menu span { width: 18px !important; height: 1px !important; margin: 0 !important; background: #111 !important; }
+        .topnav {
+          position: fixed !important;
+          inset: 0 !important;
+          z-index: 2101 !important;
+          box-sizing: border-box !important;
+          width: 100vw !important;
+          height: 100vh !important;
+          height: 100dvh !important;
+          overflow-y: auto !important;
+          padding: calc(64px + env(safe-area-inset-top)) 24px calc(64px + env(safe-area-inset-bottom)) !important;
+          justify-content: center !important;
+          align-items: center !important;
+          gap: 24px !important;
+          background: rgba(255,255,255,.98) !important;
+        }
+        .topnav:not(.open) { pointer-events: none !important; }
+        .topnav.open { pointer-events: auto !important; }
+        .topnav__photos { width: 100%; align-items: center; }
+      }
+
+      /* Center lightbox media in the viewport, independent of image/video aspect ratio. */
+      .video-modal, .image-modal {
+        position: fixed !important;
+        inset: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom)) !important;
+        overflow: hidden !important;
+      }
+      .video-modal[hidden], .image-modal[hidden] { display: none !important; }
+      .video-modal > div, .image-modal > div {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        width: min(100%, 1200px) !important;
+        max-width: calc(100vw - 32px) !important;
+        max-height: calc(100dvh - 64px) !important;
+        margin: 0 auto !important;
+      }
+      .image-modal > div { width: fit-content !important; }
+      .video-modal iframe {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: calc(100dvh - 112px) !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+        border: 0 !important;
+      }
+      .image-modal img {
+        display: block !important;
+        width: auto !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: calc(100dvh - 112px) !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+      }
+      .video-modal p, .image-modal p { width: 100%; margin: 0 !important; text-align: center !important; }
+      .video-close, .image-close {
+        position: fixed !important;
+        top: calc(12px + env(safe-area-inset-top)) !important;
+        right: calc(12px + env(safe-area-inset-right)) !important;
+        z-index: 2300 !important;
+      }
     </style>
-  </head>
-
-  <body class="splash-active">
-    <div
-      id="splashScreen"
-      class="splash-screen"
-      role="status"
-      aria-label="loading"
-    >
-      <span class="splash-screen__brand">yeobaek</span>
-    </div>
-
-    <header id="topbar" class="topbar">
-      <a class="brand" href="#top">yeobaek</a>
-
-      <nav class="topnav" aria-label="주요 메뉴">
-        <a class="topnav__link" href="#gallery">Photos</a>
-        <a class="topnav__link" href="#video-gallery">Videos</a>
-        <a class="topnav__contact" href="#contact">Contact</a>
-      </nav>
-
-      <button
-        id="menu"
-        class="menu"
-        type="button"
-        aria-label="메뉴 열기"
-        aria-expanded="false"
-      >
-        <span></span>
-        <span></span>
-      </button>
-    </header>
-
-    <main id="top">
-      <!-- Photos -->
-      <section
-        id="gallery"
-        class="selected-gallery"
-        aria-labelledby="gallery-title"
-      >
-        <div class="selected-gallery__head">
-          <h2 id="gallery-title">Photos</h2>
-        </div>
-
-        <div class="selected-gallery__grid">
-          <figure>
-            <img src="assets/img/1.jpg" alt=" " loading="lazy" />
-            <figcaption></figcaption>
-          </figure>
-          <figure>
-            <img src="assets/img/2.jpg" alt=" " loading="lazy" />
-            <figcaption></figcaption>
-          </figure>
-          <figure>
-            <img src="assets/img/3.jpg" alt=" " loading="lazy" />
-            <figcaption></figcaption>
-          </figure>
-          <figure>
-            <img src="assets/img/4.jpg" alt=" " loading="lazy" />
-            <figcaption>f</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/img/5.jpg" alt=" " loading="lazy" />
-            <figcaption></figcaption>
-          </figure>
-          <figure>
-            <img src="assets/img/6.jpg" alt=" " loading="lazy" />
-            <figcaption></figcaption>
-          </figure>
-          <figure class="gallery-extra">
-            <img src="assets/img/7.jpg" alt=" " loading="lazy" />
-            <figcaption></figcaption>
-          </figure>
-          <figure class="gallery-extra">
-            <img src="assets/img/8.jpg" alt=" " loading="lazy" />
-            <figcaption></figcaption>
-          </figure>
-        </div>
-
-        <button
-          class="gallery-more"
-          type="button"
-          aria-label="사진 더 보기"
-          aria-expanded="false"
-        >
-          사진 더 보기 <span aria-hidden="true">+</span>
-        </button>
-      </section>
-
-      <!-- Videos -->
-      <section
-        id="video-gallery"
-        class="selected-video-gallery"
-        aria-labelledby="video-gallery-title"
-      >
-        <div class="selected-video-gallery__head">
-          <h2 id="video-gallery-title">Videos</h2>
-        </div>
-
-        <div class="selected-video-gallery__grid">
-          <figure class="video-card">
-            <button
-              type="button"
-              data-video="assets/video/1.mp4"
-              data-title=" "
-              aria-label="portfolio video 1 재생"
-            >
-              <video
-                src="assets/video/1.mp4"
-                poster="assets/img/9.jpg"
-                muted
-                loop
-                autoplay
-                playsinline
-                preload="metadata"
-              ></video>
-              <span> </span>
-            </button>
-            <figcaption>01</figcaption>
-          </figure>
-          <figure class="video-card">
-            <button
-              type="button"
-              data-video="assets/video/2.mp4"
-              data-title=" "
-              aria-label="portfolio video 2 재생"
-            >
-              <video
-                src="assets/video/2.mp4"
-                poster="assets/img/10.jpg"
-                muted
-                loop
-                autoplay
-                playsinline
-                preload="metadata"
-              ></video>
-              <span> </span>
-            </button>
-            <figcaption>02</figcaption>
-          </figure>
-          <figure class="video-card">
-            <button
-              type="button"
-              data-video="assets/video/3.mp4"
-              data-title=" "
-              aria-label="portfolio video 3 재생"
-            >
-              <video
-                src="assets/video/3.mp4"
-                poster="assets/img/11.jpg"
-                muted
-                loop
-                autoplay
-                playsinline
-                preload="metadata"
-              ></video>
-              <span> </span>
-            </button>
-            <figcaption>03</figcaption>
-          </figure>
-          <figure class="video-card video-gallery-extra">
-            <button
-              type="button"
-              data-video="assets/video/4.mp4"
-              data-title=" "
-              aria-label="portfolio video 4 재생"
-            >
-              <video
-                src="assets/video/4.mp4"
-                poster="assets/img/12.jpg"
-                muted
-                loop
-                autoplay
-                playsinline
-                preload="metadata"
-              ></video>
-              <span> </span>
-            </button>
-            <figcaption>04</figcaption>
-          </figure>
-          <figure class="video-card video-gallery-extra">
-            <button
-              type="button"
-              data-video="assets/video/5.mp4"
-              data-title=" "
-              aria-label="portfolio video 5 재생"
-            >
-              <video
-                src="assets/video/5.mp4"
-                poster="assets/img/13.jpg"
-                muted
-                loop
-                autoplay
-                playsinline
-                preload="metadata"
-              ></video>
-              <span> </span>
-            </button>
-            <figcaption>05</figcaption>
-          </figure>
-          <figure class="video-card video-gallery-extra">
-            <button
-              type="button"
-              data-video="assets/video/6.mp4"
-              data-title=" "
-              aria-label="portfolio video 6 재생"
-            >
-              <video
-                src="assets/video/6.mp4"
-                poster="assets/img/14.jpg"
-                muted
-                loop
-                autoplay
-                playsinline
-                preload="metadata"
-              ></video>
-              <span> </span>
-            </button>
-            <figcaption>06</figcaption>
-          </figure>
-        </div>
-
-        <button
-          class="video-gallery-more"
-          type="button"
-          aria-label="영상 더 보기"
-          aria-expanded="false"
-        >
+</head>
+<body class="splash-active">
+<div aria-label="loading" class="splash-screen" id="splashScreen" role="status">
+<span class="splash-screen__brand">yeobaek</span>
+</div>
+<header class="topbar" id="topbar">
+<a class="brand" href="#top">yeobaek</a>
+<nav aria-label="주요 메뉴" class="topnav">
+<div class="topnav__photos"><button aria-controls="photoCategoryMenu" aria-expanded="false" class="topnav__link topnav__photos-trigger" type="button">Photos</button><div aria-label="Photo categories" class="topnav__submenu" id="photoCategoryMenu"><a href="#gallery">polychrome</a><a href="#monochrome-gallery">monochrome</a></div></div>
+<a class="topnav__link" href="#video-gallery">Videos</a>
+<a class="topnav__contact" href="#contact">Contact</a>
+</nav>
+<button aria-expanded="false" aria-label="메뉴 열기" class="menu" id="menu" type="button">
+<span></span>
+<span></span>
+</button>
+</header>
+<main id="top">
+<!-- polychrome photos -->
+<section aria-labelledby="gallery-title" class="selected-gallery" id="gallery"><!-- 상세보기 설명은 각 img의 data-description 값에 입력하세요. -->
+<div class="selected-gallery__head">
+<h2 id="gallery-title">Photos</h2>
+<small class="selected-gallery__category">polychrome</small>
+</div>
+<div class="selected-gallery__grid">
+<figure>
+<img alt="polychrome photo 1" data-description="노들섬의 노을 | 2026 | 노들섬 | Shot by Canon EOS6D" loading="lazy" src="assets/img/1.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure>
+<img alt="polychrome photo 2" data-description="전화부스 | 2025 | 일본 나가사키현 운젠시 | Shot by Canon EOS6D" loading="lazy" src="assets/img/2.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure>
+<img alt="polychrome photo 3" data-description="운젠을 지나는 버스 | 2025 | 일본 나가사키현 운젠시 | Shot by Canon EOS6D" loading="lazy" src="assets/img/3.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 4" data-description="토오토우미야 혼포 | 2025 | 일본 나가사키현 운젠시 | Shot by Canon EOS6D" loading="lazy" src="assets/img/4.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 5" data-description="분주한 캠퍼스 | 2026 | 두원공과대학교 파주캠퍼스 | Shot by Canon EOS6D" loading="lazy" src="assets/img/5.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 6" data-description="맑은 하늘과 캠퍼스 | 2026 | 두원공과대학교 파주캠퍼스 | Shot by Canon EOS6D" loading="lazy" src="assets/img/6.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 7" data-description="학생들을 격려하는 시장 | 2026 | 두원공과대학교 파주캠퍼스 | Shot by Canon EOS6D" loading="lazy" src="assets/img/7.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 8" data-description="평화의 종, 그 한 모서리 | 2026 | 임진각 | Shot by Canon EOS6D" loading="lazy" src="assets/img/8.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 9" data-description="어머니 상에 대하여, 경례 | 2026 | 임진각 | Shot by Canon EOS6D" loading="lazy" src="assets/img/9.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 10" data-description="선로와 낭만 | 2026 | 임진각 평화랜드, 평화열차 영업시간 종료 후에 촬영 | Shot by Canon EOS6D" loading="lazy" src="assets/img/10.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="polychrome photo 11" data-description="남자의 로망 | 2026 | 람보르기니 서울 전시장 | Shot by Canon EOS6D" loading="lazy" src="assets/img/11.jpg"/>
+<figcaption></figcaption>
+</figure>
+</div><button aria-expanded="false" aria-label="사진 더 보기" class="gallery-more" type="button">사진 더 보기 <span aria-hidden="true">+</span></button>
+</section>
+<!-- monochrome photos -->
+<section aria-labelledby="monochrome-gallery-title" class="selected-gallery selected-gallery--monochrome" id="monochrome-gallery"><!-- 상세보기 설명은 각 img의 data-description 값에 입력하세요. -->
+<div class="selected-gallery__head">
+<h2 id="monochrome-gallery-title">Photos</h2>
+<small class="selected-gallery__category">monochrome</small>
+</div>
+<div class="selected-gallery__grid">
+<figure>
+<img alt="monochrome photo 1" data-description="보케 | 2026 | 노들섬 | Shot by Canon EOS6D" loading="lazy" src="assets/img/1m.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure>
+<img alt="monochrome photo 2" data-description="전철을 기다리며 | 2026 | 용산역 | Shot by Canon EOS6D" loading="lazy" src="assets/img/2m.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure>
+<img alt="monochrome photo 3" data-description="도플갱어 | 2026 | 노들섬 | Shot by Canon EOS6D" loading="lazy" src="assets/img/3m.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="monochrome photo 4" data-description="건물과 하늘의 대비 | 2026 | 노들섬 | Shot by Canon EOS6D" loading="lazy" src="assets/img/4m.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="monochrome photo 5" data-description="한강대교 | 2026 | 노들섬 | Shot by Canon EOS6D" loading="lazy" src="assets/img/5m.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="monochrome photo 6" data-description="영원은 그렇듯 | 2026 | 노들섬 | Shot by Canon EOS6D" loading="lazy" src="assets/img/6m.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="monochrome photo 7" data-description="퇴근길 | 2026 | 한강대교 | Shot by Canon EOS6D" loading="lazy" src="assets/img/7m.jpg"/>
+<figcaption></figcaption>
+</figure>
+<figure class="gallery-extra">
+<img alt="monochrome photo 8" data-description="계단 | 2026 | 노들섬 | Shot by Canon EOS6D" loading="lazy" src="assets/img/8m.jpg"/>
+<figcaption></figcaption>
+</figure>
+</div><button aria-expanded="false" aria-label="사진 더 보기" class="gallery-more" type="button">사진 더 보기 <span aria-hidden="true">+</span></button>
+</section>
+<!-- Videos -->
+<section aria-labelledby="video-gallery-title" class="selected-video-gallery" id="video-gallery">
+<div class="selected-video-gallery__head">
+<h2 id="video-gallery-title">Videos</h2>
+</div>
+<div class="selected-video-gallery__grid">
+<figure class="video-card">
+<button aria-label="portfolio video 1 재생" data-title=" " data-video="https://www.youtube.com/watch?v=k46-pT93R9Q" type="button">
+<img alt="" loading="lazy"/>
+<span></span>
+</button>
+<figcaption></figcaption>
+</figure>
+<figure class="video-card">
+<button aria-label="portfolio video 2 재생" data-title=" " data-video="https://www.youtube.com/watch?v=k46-pT93R9Q" type="button">
+<img alt="" loading="lazy"/>
+<span></span>
+</button>
+<figcaption></figcaption>
+</figure>
+<figure class="video-card">
+<button aria-label="portfolio video 3 재생" data-title=" " data-video="https://www.youtube.com/watch?v=k46-pT93R9Q" type="button">
+<img alt="" loading="lazy"/>
+<span></span>
+</button>
+<figcaption></figcaption>
+</figure>
+<figure class="video-card video-gallery-extra">
+<button aria-label="portfolio video 4 재생" data-title=" " data-video="https://www.youtube.com/watch?v=k46-pT93R9Q" type="button">
+<img alt="" loading="lazy"/>
+<span></span>
+</button>
+<figcaption></figcaption>
+</figure>
+<figure class="video-card video-gallery-extra">
+<button aria-label="portfolio video 5 재생" data-title=" " data-video="https://www.youtube.com/watch?v=k46-pT93R9Q" type="button">
+<img alt="" loading="lazy"/>
+<span></span>
+</button>
+<figcaption></figcaption>
+</figure>
+<figure class="video-card video-gallery-extra">
+<button aria-label="portfolio video 6 재생" data-title=" " data-video="https://www.youtube.com/watch?v=k46-pT93R9Q" type="button">
+<img alt="" loading="lazy"/>
+<span></span>
+</button>
+<figcaption></figcaption>
+</figure>
+</div>
+<button aria-expanded="false" aria-label="영상 더 보기" class="video-gallery-more" type="button">
           영상 더 보기 <span aria-hidden="true">+</span>
-        </button>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="about-new" aria-labelledby="about-title">
-        <div class="about-new__grid">
-          <div aria-hidden="true">
-            <h2>T1<br />T2</h2>
-          </div>
-          <div>
-            <p id="about-title" class="bigp">ABOUT</p>
-            <div class="about-facts">
-              <div>
-                <b>2025</b>
-                <span>SINCE</span>
-              </div>
-              <div>
-                <b>13</b>
-                <span>PROJECTS</span>
-              </div>
-              <div>
-                <b>4</b>
-                <span>CLIENTS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <div class="social-links__inner">
-            <h2 id="social-links-title">Social</h2>
-            <nav class="social-links__nav" aria-label="소셜 링크">
-              <a
-                href="https://www.instagram.com/yeo.baekkk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+</button>
+</section>
+<!-- About -->
+<section aria-labelledby="about-title" class="about-new" id="about">
+<div class="about-new__grid">
+<div aria-hidden="true">
+<h2>T1<br/>T2</h2>
+</div>
+<div>
+<p class="bigp" id="about-title">ABOUT</p>
+<div class="about-facts">
+<div>
+<b>2025</b>
+<span>SINCE</span>
+</div>
+<div>
+<b>13</b>
+<span>PROJECTS</span>
+</div>
+<div>
+<b>4</b>
+<span>CLIENTS</span>
+</div>
+</div>
+</div>
+</div>
+<div class="social-links">
+<div class="social-links__inner">
+<h2 id="social-links-title">Social</h2>
+<nav aria-label="소셜 링크" class="social-links__nav">
+<a href="https://www.instagram.com/yeo.baekkk" rel="noopener noreferrer" target="_blank">
                 Instagram <span aria-hidden="true">↗</span>
-              </a>
-              <a
-                href="https://www.youtube.com/@yeo.baekkk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+</a>
+<a href="https://www.youtube.com/@yeo.baekkk" rel="noopener noreferrer" target="_blank">
                 YouTube <span aria-hidden="true">↗</span>
-              </a>
-              <a
-                href="https://x.com/yeobaekkk"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+</a>
+<a href="https://x.com/yeobaekkk" rel="noopener noreferrer" target="_blank">
                 X <span aria-hidden="true">↗</span>
-              </a>
-            </nav>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="contact-new" aria-labelledby="contact-title">
-        <div class="contact-new__inner">
-          <h2 id="contact-title">Contact</h2>
-          <a class="contact-link" href="mailto:contact@yeobaek.xyz">
+</a>
+</nav>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section aria-labelledby="contact-title" class="contact-new" id="contact">
+<div class="contact-new__inner">
+<h2 id="contact-title">Contact</h2>
+<a class="contact-link" href="mailto:contact@yeobaek.xyz">
             contact@yeobaek.xyz <b aria-hidden="true">↗</b>
-          </a>
-
-          <div class="contact-links">
-            <a
-              class="contact-social"
-              href="https://discord.gg/J4NaZSJu"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+</a>
+<div class="contact-links">
+<a class="contact-social" href="https://discord.gg/J4NaZSJu" rel="noopener noreferrer" target="_blank">
               Discord
             </a>
-          </div>
-
-          <div class="font-drawer">
-            <button
-              class="font-drawer__toggle"
-              type="button"
-              aria-controls="fontDrawerPanel"
-              aria-expanded="false"
-            >
-              사용한 폰트 보기 <span aria-hidden="true">+</span>
-            </button>
-            <div id="fontDrawerPanel" class="font-drawer__panel" hidden>
-              <div>
-                <b>Space Grotesk</b>
-              </div>
-              <div>
-                <b>Pretendard Variable</b>
-              </div>
-              <div>
-                <b>Instrument Serif</b>
-              </div>
-            </div>
-          </div>
-
-          <span class="copyright"
-            >Copyright © All Rights Reserved By yeobaek</span
-          >
-        </div>
-      </section>
-    </main>
-
-    <!-- Video modal -->
-    <div
-      id="videoModal"
-      class="video-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="videoTitle"
-      hidden
-    >
-      <button
-        id="videoClose"
-        class="video-close"
-        type="button"
-        aria-label="영상 모달 닫기"
-      >
+</div>
+<div class="font-drawer">
+<button aria-controls="fontDrawerPanel" aria-expanded="false" class="font-drawer__toggle" type="button">
+              사용한 폰트 <span aria-hidden="true">+</span>
+</button>
+<div class="font-drawer__panel" hidden="" id="fontDrawerPanel"><div class="font-credit"><b>Space Grotesk</b><span>By Florian Karsten</span><div class="font-credit__links"><a href="https://fonts.google.com/specimen/Space+Grotesk" rel="noopener noreferrer" target="_blank">Google Fonts</a><a href="https://fonts.google.com/specimen/Space+Grotesk/license" rel="noopener noreferrer" target="_blank">SIL OFL 1.1</a></div></div><div class="font-credit"><b>Pretendard Variable</b><span>By Kil Hyung-jin</span><div class="font-credit__links"><a href="https://github.com/orioncactus/pretendard" rel="noopener noreferrer" target="_blank">Github</a><a href="https://github.com/orioncactus/pretendard/releases/latest" rel="noopener noreferrer" target="_blank">Github releases</a><a href="https://github.com/orioncactus/pretendard/blob/main/LICENSE" rel="noopener noreferrer" target="_blank">SIL OFL 1.1</a></div></div><div class="font-credit"><b>Instrument Serif</b><span>By Rodrigo Fuenzalida · Jordan Egstad</span><div class="font-credit__links"><a href="https://fonts.google.com/specimen/Instrument+Serif" rel="noopener noreferrer" target="_blank">Google Fonts</a><a href="https://fonts.google.com/specimen/Instrument+Serif/license" rel="noopener noreferrer" target="_blank">SIL OFL 1.1</a></div></div></div>
+</div>
+<span class="copyright">Copyright © All Rights Reserved By yeobaek</span>
+</div>
+</section>
+</main>
+<!-- Video modal -->
+<div aria-labelledby="videoTitle" aria-modal="true" class="video-modal" hidden="" id="videoModal" role="dialog">
+<button aria-label="영상 모달 닫기" class="video-close" id="videoClose" type="button">
         ×
       </button>
-      <div>
-        <video id="videoPlayer" controls playsinline></video>
-        <p id="videoTitle"></p>
-      </div>
-    </div>
-
-    <!-- Image modal -->
-    <div
-      id="imageModal"
-      class="image-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="imageTitle"
-      hidden
-    >
-      <button
-        id="imageClose"
-        class="image-close"
-        type="button"
-        aria-label="사진 팝업 닫기"
-      >
+<div>
+<iframe allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen="" id="videoPlayer" title="YouTube video"></iframe>
+<p id="videoTitle"></p>
+</div>
+</div>
+<!-- Image modal -->
+<div aria-labelledby="imageTitle" aria-modal="true" class="image-modal" hidden="" id="imageModal" role="dialog">
+<button aria-label="사진 팝업 닫기" class="image-close" id="imageClose" type="button">
         ×
       </button>
-      <div>
-        <img id="imageViewer" src="" alt="" />
-        <p id="imageTitle"></p>
-      </div>
-    </div>
-
-    <script src="js/main.js"></script>
-    <script>
+<div>
+<img alt="" id="imageViewer" src=""/>
+<p id="imageTitle"></p>
+</div>
+</div>
+<script src="js/main.js"></script>
+<script>
       (() => {
         const imageModal = document.getElementById("imageModal");
         const imageViewer = document.getElementById("imageViewer");
@@ -633,9 +587,7 @@
           modal.hidden = true;
           document.body.style.overflow = "";
           if (video) {
-            video.pause();
             video.removeAttribute("src");
-            video.load();
           }
         };
 
@@ -645,30 +597,11 @@
             image.addEventListener("click", () => {
               imageViewer.src = image.currentSrc || image.src;
               imageViewer.alt = image.alt;
-              imageTitle.textContent =
-                image.closest("figure")?.querySelector("figcaption")
-                  ?.textContent || "";
+              imageTitle.textContent = image.dataset.description || "";
               imageModal.hidden = false;
               document.body.style.overflow = "hidden";
             });
           });
-
-        document.querySelectorAll(".video-card > button").forEach((button) => {
-          button.addEventListener("click", (event) => {
-            event.preventDefault();
-            const source = button.dataset.video;
-            if (!source || !videoPlayer) return;
-
-            document
-              .querySelectorAll(".video-card video")
-              .forEach((preview) => preview.pause());
-            videoPlayer.src = source;
-            videoTitle.textContent = button.dataset.title || "";
-            videoModal.hidden = false;
-            document.body.style.overflow = "hidden";
-            videoPlayer.play().catch(() => {});
-          });
-        });
 
         const videoGalleryMore = document.querySelector(".video-gallery-more");
         const extraVideoCards = document.querySelectorAll(
@@ -695,14 +628,12 @@
         );
 
         imageClose?.addEventListener("click", () => closeModal(imageModal));
-        videoClose?.addEventListener("click", () =>
-          closeModal(videoModal, videoPlayer),
-        );
+        videoClose?.addEventListener("click", () => closeModal(videoModal));
 
         [imageModal, videoModal].forEach((modal) => {
           modal?.addEventListener("click", (event) => {
             if (event.target === modal) {
-              closeModal(modal, modal === videoModal ? videoPlayer : null);
+              closeModal(modal);
             }
           });
         });
@@ -710,11 +641,11 @@
         document.addEventListener("keydown", (event) => {
           if (event.key !== "Escape") return;
           closeModal(imageModal);
-          closeModal(videoModal, videoPlayer);
+          closeModal(videoModal);
         });
       })();
     </script>
-    <script>
+<script>
       window.setTimeout(() => {
         const splashScreen = document.getElementById("splashScreen");
 
@@ -726,5 +657,5 @@
         }, 300);
       }, 500);
     </script>
-  </body>
+</body>
 </html>
